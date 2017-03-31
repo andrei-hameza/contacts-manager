@@ -1,5 +1,5 @@
 {
-  "name": "test-task-ed",
+  "name": "contacts-service",
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
@@ -7,11 +7,29 @@
     "yarn": "^0.19.1"
   },
   "main": "src/index.js",
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "mocha -R spec src/**/*.spec.js",
+    "lint": "standard --verbose | snazzy",
+    "node-debug": "DEBUG=express* node src/index.js",
+    "chrome-debug": "node --debug-brk --inspect src/index.js",
+    "metric": "nodejs-dashboard -- node -r nodejs-dashboard src/index.js"
   },
   "dependencies": {
     "express": "^4.14.1",
     "mongoose": "^4.8.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nodejs-dashboard": "^0.4.1",
+    "snazzy": "^6.0.0",
+    "standard": "^9.0.2",
+    "supertest": "^3.0.0"
   }
 }
