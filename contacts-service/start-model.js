@@ -1,10 +1,10 @@
-const mongoose = require('./mongoose');
+const mongoose = require('./mongoose')
 
 const StartSchema = new mongoose.Schema({
-    example: {
-        type: String,
-        required: true
-    }
-});
+  example: {
+    type: String,
+    required: true
+  }
+})
 
-module.exports = mongoose.model('start', StartSchema);
+module.exports = mongoose.model('start', StartSchema)
