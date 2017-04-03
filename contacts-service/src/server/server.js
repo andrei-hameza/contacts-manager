@@ -1,6 +1,10 @@
+'use strict'
+
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
+const bodyParser = require('body-parser')
+const api = require('../api/contacts')
 
 const start = (options) => {
   return new Promise((resolve, reject) => {
@@ -12,6 +16,9 @@ const start = (options) => {
 
     app.use(morgan('dev'))
     app.use(helmet())
+    app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(bodyParser.json())
+    app.use('/contacts', api)
 
     // error handler
     app.use((err, req, res, next) => {
@@ -22,7 +29,7 @@ const start = (options) => {
       })
     })
 
-    const server = app.listen(options.port, () => resolve())
+    app.listen(options.port, () => resolve())
   })
 }
 
