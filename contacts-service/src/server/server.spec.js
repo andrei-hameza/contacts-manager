@@ -9,7 +9,7 @@ describe('Server', () => {
       port: 5555
     }
 
-    return server.start(options).should.be.fulfilledWith(options)
+    return server.start(options).should.be.fulfilled()
   })
 
   it('should require a port to start', () => {
