@@ -10,8 +10,7 @@
   "standard": {
     "env": {
       "mocha": true
-    },
-    "globals": ["should"]
+    }
   },
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js src/index.js",
