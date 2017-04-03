@@ -1,3 +1,5 @@
+'use strict'
+
 const server = require('./server/server.js')
 const options = { port: 3000 }
 

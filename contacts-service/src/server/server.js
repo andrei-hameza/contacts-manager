@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
@@ -22,7 +24,7 @@ const start = (options) => {
       })
     })
 
-    const server = app.listen(options.port, () => resolve())
+    app.listen(options.port, () => resolve())
   })
 }
 
