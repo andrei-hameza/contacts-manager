@@ -8,10 +8,13 @@ console.log('### Contacts service ###')
 
 console.log('Starting http server...')
 
-server
-  .start({ port })
-  .then(() => {
+async function start () {
+  try {
+    await server.start({ port })
     console.log('Server started on port: ', port)
-  }).catch((e) => {
+  } catch (e) {
     console.error('Server couldn\'t start. Please, define a port.')
-  })
+  }
+}
+
+start()

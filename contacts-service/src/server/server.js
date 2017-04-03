@@ -9,7 +9,7 @@ const api = require('../api/contacts')
 const start = (options) => {
   return new Promise((resolve, reject) => {
     if (!options.port) {
-      reject(new Error('Server port should be defined'))
+      reject(new Error('Server port should be defined!'))
     }
 
     const app = express()
