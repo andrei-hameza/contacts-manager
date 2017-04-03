@@ -2,10 +2,10 @@
 
 const status = require('http-status')
 const contactsRouter = require('express').Router()
-const apiDefault = require('../config/config.js').get('default')
+const config = require('../config/config.js')
 const _ = require('lodash')
-const OFFSET = _.get(apiDefault, ['api', 'offset'])
-const LIMIT = _.get(apiDefault, ['api', 'limit'])
+const OFFSET = config.get('default:api:offset')
+const LIMIT = config.get('default:api:limit')
 
 const contacts = []
 var id = 0

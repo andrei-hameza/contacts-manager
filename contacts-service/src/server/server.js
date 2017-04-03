@@ -29,7 +29,7 @@ const start = (options) => {
       })
     })
 
-    app.listen(options.port, () => resolve())
+    const server = app.listen(options.port, () => resolve(server))
   })
 }
 
