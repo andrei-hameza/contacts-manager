@@ -1,4 +1,7 @@
 language: node_js
 node_js:
   - "6"
-before_install: cd contacts-service
+before_install:
+  - cd contacts-service && npm install -g yarn --cache-min 999999999
+install:
+  - yarn
