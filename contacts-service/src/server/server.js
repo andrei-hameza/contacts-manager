@@ -22,7 +22,7 @@ const start = (options) => {
       })
     })
 
-    const server = app.listen(options.port, () => resolve({ port: server.address().port }))
+    const server = app.listen(options.port, () => resolve())
   })
 }
 
