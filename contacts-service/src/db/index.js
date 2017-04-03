@@ -1,9 +1,15 @@
+'use strict'
+
 const mongoose = require('mongoose')
 var db
 
 const connect = (options) => {
   return new Promise((resolve, reject) => {
     const { uri } = options
+
+    // add support of native promises for mongoose queries
+    mongoose.Promise = global.Promise
+
     mongoose.connect(uri)
     db = mongoose.connection
 
@@ -19,9 +25,7 @@ const connect = (options) => {
   })
 }
 
-const disconnect = () => {
-  db.close()
-}
+const disconnect = () => db.close()
 
 module.exports = {
   connect,
