@@ -1,6 +1,6 @@
 /* eslint-env node */
 const server = require('./server/server.js')
-const options = { port: null }
+const options = { port: 3000 }
 
 console.log('### Contacts service ###')
 
