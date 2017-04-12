@@ -6,6 +6,7 @@ const config = require('../../config/config.js')
 const OFFSET = config.get('default:api:offset')
 const LIMIT = config.get('default:api:limit')
 const Schema = mongoose.Schema
+const validateEmail = require('../../utils').validateEmail
 
 /**
  * Contact Schema
@@ -40,10 +41,7 @@ const ContactSchema = new Schema({
 
 ContactSchema.path('name').required(true, 'Name field can\'t be empty')
 
-ContactSchema.path('email').validate((email) => {
-  const emailRegex = /^([\w-.]+@([\w-]+\.)+[\w-]{2,4})?$/
-  return emailRegex.test(email)
-}, 'Provide a valid email address')
+ContactSchema.path('email').validate(validateEmail, 'Provide a valid email address')
 
 /**
 * Pre-findOneAndUpdate hook
