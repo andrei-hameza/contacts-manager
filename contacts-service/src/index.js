@@ -2,7 +2,7 @@
 
 const server = require('./server/server.js')
 const db = require('./db')
-const config = require('./config/config')
+const config = require('./config')
 const port = config.get('port')
 const uri = config.get('mongoose:uri')
 
