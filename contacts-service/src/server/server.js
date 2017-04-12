@@ -4,7 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
-const api = require('../api/contacts')
+const api = require('../router')
 
 const start = (options) => {
   return new Promise((resolve, reject) => {
