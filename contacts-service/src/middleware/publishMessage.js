@@ -3,22 +3,22 @@
 const tortoise = require('../models/tortoise')
 
 async function publishMessage (req, res, next) {
-  const queue = tortoise.QUEUE.contacts
+  let message
 
-  const message = {
-    method: req.method,
-    user: req.params.id
-  }
-
-  console.log('Manipulation with contacts is detected')
+  console.info('Manipulation with contacts is detected')
 
   try {
+    const queue = tortoise.QUEUE.contacts
+
+    message = {
+      method: req.method,
+      user: req.params.id
+    }
     await tortoise.queue(queue).publish(message)
-    console.log('Message was published to queue successfully: ', message)
+    console.info('Message was published to queue successfully: ', message)
     next()
   } catch (err) {
     console.error('Message wasn\'t published to queue due to error: ', message, err)
-    throw err
   }
 }
 

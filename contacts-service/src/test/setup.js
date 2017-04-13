@@ -12,6 +12,8 @@ before(() => {
 
 beforeEach(function beforeEach () {
   this.sandbox = sinon.sandbox.create()
+  this.sandbox.stub(console, 'info')
+  this.sandbox.stub(console, 'error')
 })
 
 afterEach(function afterEach () {
