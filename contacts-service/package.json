@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js src/index.js",
-    "test": "NODE_ENV=test mocha src/test/setup.js -R spec src/**/*.spec.js",
+    "test": "NODE_ENV=test mocha src/test/setup.js 'src/**/*.spec.js'",
     "lint": "standard --verbose | snazzy",
     "node-debug": "DEBUG=express* node src/index.js",
     "chrome-debug": "node --debug-brk --inspect src/index.js",

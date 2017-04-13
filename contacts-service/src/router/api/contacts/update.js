@@ -7,7 +7,7 @@ async function updateContact (req, res) {
   try {
     const { id } = req.params
     const data = req.body
-    const updatedContact = await Contact.findByIdAndUpdate(id, data, { new: true })
+    const updatedContact = await Contact.findByIdAndUpdate(id, data)
     res.status(status.OK).json(updatedContact)
   } catch (err) {
     console.error('Call for updating conact failed')
