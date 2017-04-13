@@ -15,7 +15,10 @@ const start = (options) => {
 
     const app = express()
 
-    app.use(morgan('dev'))
+    if (process.env.NODE_ENV !== 'test') {
+      app.use(morgan('dev'))
+    }
+
     app.use(helmet())
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())

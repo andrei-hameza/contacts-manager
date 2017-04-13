@@ -11,7 +11,7 @@ async function createContact (req, res) {
   } catch (err) {
     console.error('Call for saving conact failed')
     console.error(err.message)
-    res.status(status.NOT_ACCEPTABLE).send({
+    res.status(status.BAD_REQUEST).send({
       message: err.message
     })
   }
