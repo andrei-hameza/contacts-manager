@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate')
-const config = require('../../config/config.js')
+const config = require('../../config')
 const OFFSET = config.get('default:api:offset')
 const LIMIT = config.get('default:api:limit')
 const Schema = mongoose.Schema

@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const api = require('../router')
+const publishMessage = require('../middleware').publishMessage
 
 const start = (options) => {
   return new Promise((resolve, reject) => {
@@ -19,6 +20,7 @@ const start = (options) => {
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())
     app.use('/contacts', api)
+    api.delete('/:id', publishMessage)
 
     // error handler
     app.use((err, req, res, next) => {
