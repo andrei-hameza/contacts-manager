@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js src/index.js",
-    "test": "mocha -R spec src/**/*.spec.js",
+    "test": "NODE_ENV=test mocha src/test/setup.js -R spec src/**/*.spec.js",
     "lint": "standard --verbose | snazzy",
     "node-debug": "DEBUG=express* node src/index.js",
     "chrome-debug": "node --debug-brk --inspect src/index.js",
@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
-    "chai": "^3.5.0",
     "express": "^4.14.1",
     "helmet": "^3.5.0",
     "http-status": "^1.0.1",
@@ -31,8 +30,6 @@
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.8.1",
     "nconf": "^0.8.4",
-    "sinon": "^2.1.0",
-    "sinon-chai": "^2.9.0",
     "tortoise": "^1.0.1"
   },
   "devDependencies": {
@@ -40,6 +37,8 @@
     "nodejs-dashboard": "^0.4.1",
     "nodemon": "^1.11.0",
     "should": "^11.2.1",
+    "should-sinon": "0.0.5",
+    "sinon": "^2.1.0",
     "snazzy": "^6.0.0",
     "standard": "^9.0.2",
     "supertest": "^3.0.0"

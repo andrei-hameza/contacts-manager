@@ -6,9 +6,11 @@ const status = require('http-status')
 async function removeContact (req, res, next) {
   try {
     const { id } = req.params
-    await Contact.findByIdAndRemove(id)
+    const contact = await Contact.findByIdAndRemove(id)
     res.status(status.NO_CONTENT).json()
-    next()
+    if (contact) {
+      next()
+    }
   } catch (err) {
     console.error('Call for deleting conact failed')
     console.error(err.message)
