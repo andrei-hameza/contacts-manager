@@ -1,0 +1,19 @@
+
+{
+  "port": 3000,
+  "mongoose": {
+    "uri": "mongodb://localhost:27017/history"
+  },
+  "rabbitmq": {
+    "uri": "amqp://localhost",
+    "queue": "history",
+    "prefetch": 1
+  },
+  "default": {
+    "api": {
+      "version" : "v1",
+      "offset": 0,
+      "limit": 10
+    }
+  }
+}
