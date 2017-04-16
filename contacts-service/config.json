@@ -5,7 +5,8 @@
     "uri": "mongodb://localhost:27017/contacts"
   },
   "rabbitmq": {
-    "uri": "amqp://localhost"
+    "uri": "amqp://localhost",
+    "queue": "history"
   },
   "default": {
     "api": {

@@ -11,9 +11,12 @@ async function publishMessage (req, res, next) {
     const queue = tortoise.QUEUE.contacts
 
     message = {
-      method: req.method,
-      user: req.params.id
+      type: req.method,
+      payload: {
+        contactId: req.params.id
+      }
     }
+
     await tortoise.queue(queue).publish(message)
     console.info('Message was published to queue successfully: ', message)
     next()
