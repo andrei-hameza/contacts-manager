@@ -3,18 +3,14 @@
 const Contact = require('../../../models/contact')
 const status = require('http-status')
 const _ = require('lodash')
+const R = require('ramda')
 
 async function getContactsList (req, res) {
   try {
-    const offset = parseInt(req.query.offset, 10)
-    const limit = parseInt(req.query.limit, 10)
-    const options = {}
-    if (_.isInteger(offset)) {
-      Object.assign(options, { offset })
-    }
-    if (_.isInteger(limit)) {
-      Object.assign(options, { limit })
-    }
+    const toDigitNumber = R.partialRight(parseInt, [10])
+    const isNonNegativeInteger = R.both(_.isInteger, R.lte(0))
+    const supportedQueryParams = R.compose(R.filter(isNonNegativeInteger), R.map(toDigitNumber), R.pick(['offset', 'limit']))
+    const options = supportedQueryParams(req.query)
     const contacts = await Contact.paginate({}, options)
     res.status(status.OK).json({
       collection: contacts.docs,
