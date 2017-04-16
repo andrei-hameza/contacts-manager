@@ -8,12 +8,15 @@ async function publishMessage (req, res, next) {
   console.info('Manipulation with contacts is detected')
 
   try {
-    const queue = tortoise.QUEUE.contacts
+    const queue = tortoise.QUEUE.name
 
     message = {
-      method: req.method,
-      user: req.params.id
+      type: req.method,
+      payload: {
+        contactId: req.params.id
+      }
     }
+
     await tortoise.queue(queue).publish(message)
     console.info('Message was published to queue successfully: ', message)
     next()

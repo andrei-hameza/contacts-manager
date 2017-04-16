@@ -1,7 +1,7 @@
 'use strict'
 
 const Tortoise = require('tortoise')
-const config = require('../../config')
+const config = require('../../config/')
 const rabbitmqUri = config.get('rabbitmq:uri')
 const rabbitmqQueue = config.get('rabbitmq:queue')
 

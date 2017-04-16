@@ -32,11 +32,13 @@ describe('publishMessage middleware', () => {
       }
 
       message = {
-        method: req.method,
-        user: req.params.id
+        type: req.method,
+        payload: {
+          contactId: req.params.id
+        }
       }
 
-      this.sandbox.stub(tortoise, 'QUEUE', { contacts: queueName })
+      this.sandbox.stub(tortoise, 'QUEUE', { name: queueName })
     })
 
     it('should be able to publish the message to queue', async function () {
