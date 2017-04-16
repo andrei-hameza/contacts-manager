@@ -8,7 +8,7 @@ async function publishMessage (req, res, next) {
   console.info('Manipulation with contacts is detected')
 
   try {
-    const queue = tortoise.QUEUE.contacts
+    const queue = tortoise.QUEUE.name
 
     message = {
       type: req.method,

@@ -3,6 +3,7 @@
 const Tortoise = require('tortoise')
 const config = require('../../config')
 const rabbitmqUri = config.get('rabbitmq:uri')
+const rabbitmqQueue = config.get('rabbitmq:queue')
 
 const tortoise = new Tortoise(rabbitmqUri)
 
@@ -20,6 +21,6 @@ tortoise.on(Tortoise.EVENTS.CONNECTIONERROR, (err) => {
 
 module.exports = Object.assign(tortoise, {
   QUEUE: {
-    contacts: 'contacts'
+    name: rabbitmqQueue
   }
 })
