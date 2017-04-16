@@ -13,15 +13,16 @@
     }
   },
   "scripts": {
-    "start": "node node_modules/nodemon/bin/nodemon.js src/index.js",
-    "test": "NODE_ENV=test mocha src/test/setup.js -R spec src/**/*.spec.js",
+    "start:web": "PROCESS_TYPE=web NODE_ENV=development nodemon .",
+    "start:worker": "PROCESS_TYPE=history-worker NODE_ENV=development nodemon .",
+    "test": "NODE_ENV=test mocha web/test/setup.js -R spec src/**/*.spec.js",
     "lint": "standard --verbose | snazzy",
-    "node-debug": "DEBUG=express* node src/index.js",
-    "chrome-debug": "node --debug-brk --inspect src/index.js",
-    "metric": "nodejs-dashboard -- node -r nodejs-dashboard src/index.js"
+    "chrome-debug": "node --debug-brk --inspect .",
+    "metric": "nodejs-dashboard -- node -r nodejs-dashboard ."
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "helmet": "^3.5.0",
     "http-status": "^1.0.1",
@@ -30,7 +31,9 @@
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.8.1",
     "nconf": "^0.8.4",
-    "tortoise": "^1.0.1"
+    "ramda": "^0.23.0",
+    "tortoise": "^1.0.1",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

@@ -1,6 +1,10 @@
 'use strict'
 
 const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate')
+const config = require('../../config/')
+const OFFSET = config.get('default:api:offset')
+const LIMIT = config.get('default:api:limit')
 const Schema = mongoose.Schema
 
 /**
@@ -34,5 +38,16 @@ const HistorySchema = new Schema({
     }
   }
 })
+
+/**
+* Plugins
+*/
+
+mongoosePaginate.paginate.options = {
+  offset: OFFSET,
+  limit: LIMIT
+}
+
+HistorySchema.plugin(mongoosePaginate)
 
 module.exports = mongoose.model('History', HistorySchema)
