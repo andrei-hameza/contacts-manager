@@ -13,7 +13,8 @@
     }
   },
   "scripts": {
-    "start": "node node_modules/nodemon/bin/nodemon.js src/index.js",
+    "start": "node src/index.js",
+    "start:dev": "node node_modules/nodemon/bin/nodemon.js src/index.js",
     "test": "NODE_ENV=test mocha src/test/setup.js 'src/**/*.spec.js'",
     "lint": "standard --verbose | snazzy",
     "node-debug": "DEBUG=express* node src/index.js",

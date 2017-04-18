@@ -2,10 +2,12 @@
 
 const Tortoise = require('tortoise')
 const config = require('../../config')
-const rabbitmqUri = config.get('rabbitmq:uri')
+const rabbitmqUri = config.get('RABBITMQ_URI') || config.get('rabbitmq:uri')
 const rabbitmqQueue = config.get('rabbitmq:queue')
 
 const tortoise = new Tortoise(rabbitmqUri)
+
+console.log(rabbitmqUri)
 
 tortoise.on(Tortoise.EVENTS.CONNECTIONCLOSED, () => {
   console.error('RabbitMQ connection closed')

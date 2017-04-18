@@ -4,7 +4,7 @@ const tortoise = require('../models/tortoise')
 const mongoose = require('mongoose')
 const processMessage = require('./middleware')
 const config = require('../config/')
-const uri = config.get('mongoose:uri')
+const uri = config.get('MONGODB_URI') || config.get('mongoose:uri')
 const prefetch = config.get('rabbitmq:prefetch')
 const queue = tortoise.QUEUE.name
 

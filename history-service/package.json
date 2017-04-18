@@ -15,6 +15,7 @@
   "scripts": {
     "start:web": "PROCESS_TYPE=web NODE_ENV=development nodemon .",
     "start:worker": "PROCESS_TYPE=history-worker NODE_ENV=development nodemon .",
+    "start:docker": "node web && node worker",
     "test": "NODE_ENV=test mocha web/test/setup.js -R spec src/**/*.spec.js",
     "lint": "standard --verbose | snazzy",
     "chrome-debug": "node --debug-brk --inspect .",

@@ -2,8 +2,10 @@
 
 const Tortoise = require('tortoise')
 const config = require('../../config/')
-const rabbitmqUri = config.get('rabbitmq:uri')
+const rabbitmqUri = config.get('RABBITMQ_URI') || config.get('rabbitmq:uri')
 const rabbitmqQueue = config.get('rabbitmq:queue')
+
+console.log(rabbitmqUri)
 
 const tortoise = new Tortoise(rabbitmqUri)
 
