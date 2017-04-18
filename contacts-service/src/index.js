@@ -4,9 +4,11 @@ const server = require('./server/server.js')
 const db = require('./db')
 const config = require('./config')
 const port = config.get('port')
-const uri = config.get('mongoose:uri')
+const uri = config.get('MONGODB_URI') || config.get('mongoose:uri')
 
 console.log('### Contacts service ###')
+
+console.info(`Starting process PID=${process.pid}`)
 
 console.log('Starting http server...')
 
