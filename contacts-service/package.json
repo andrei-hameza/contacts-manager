@@ -15,9 +15,9 @@
   "scripts": {
     "start": "node src/index.js",
     "start:dev": "node node_modules/nodemon/bin/nodemon.js src/index.js",
-    "test": "NODE_ENV=test mocha src/test/setup.js 'src/**/*.spec.js'",
+    "test": "cross-env NODE_ENV=test mocha src/test/setup.js 'src/**/*.spec.js'",
     "lint": "standard --verbose | snazzy",
-    "node-debug": "DEBUG=express* node src/index.js",
+    "node-debug": "cross-env DEBUG=express* node src/index.js",
     "chrome-debug": "node --debug-brk --inspect src/index.js",
     "metric": "nodejs-dashboard -- node -r nodejs-dashboard src/index.js"
   },
@@ -35,6 +35,7 @@
     "tortoise": "^1.0.1"
   },
   "devDependencies": {
+    "cross-env": "^4.0.0",
     "mocha": "^3.2.0",
     "nodejs-dashboard": "^0.4.1",
     "nodemon": "^1.11.0",

@@ -7,8 +7,6 @@ const rabbitmqQueue = config.get('rabbitmq:queue')
 
 const tortoise = new Tortoise(rabbitmqUri)
 
-console.log(rabbitmqUri)
-
 tortoise.on(Tortoise.EVENTS.CONNECTIONCLOSED, () => {
   console.error('RabbitMQ connection closed')
 })
