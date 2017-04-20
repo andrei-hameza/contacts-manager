@@ -4,4 +4,4 @@
 
 ## Architecture
 
-![Schema](https://drive.google.com/open?id=0B6hgLGqNhIPxZEk1Nl9ISWFmeGM)
+![](https://lh5.googleusercontent.com/NsXFxKvW9MxdV3l3r3ablsdo_WK_b_FR7e0vCTuUKk1lSuVnzmDrRe_xQW4DE4lwPsFygXVHRSbqp3c=w1845-h897-rw)
