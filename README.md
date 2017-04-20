@@ -1,6 +1,10 @@
 # Contacts Manager
 
-[![Build Status](https://travis-ci.org/andrei-hameza/contacts-manager.svg?branch=master)](https://travis-ci.org/andrei-hameza/contacts-manager)
+<p align="center">
+  <a href="https://travis-ci.org/andrei-hameza/contacts-manager"><img src="https://img.shields.io/travis/feross/standard/master.svg" alt="travis"></a>
+  <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+</p>
+
 
 ## Architecture
 
