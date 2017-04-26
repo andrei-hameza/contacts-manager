@@ -8,7 +8,7 @@
 
 ## Architecture
 
-![](https://lh5.googleusercontent.com/NsXFxKvW9MxdV3l3r3ablsdo_WK_b_FR7e0vCTuUKk1lSuVnzmDrRe_xQW4DE4lwPsFygXVHRSbqp3c=w1845-h897-rw)
+![](assets/architecture.png)
 
 # Contacts Service REST API
 
